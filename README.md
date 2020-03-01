@@ -3,7 +3,7 @@
 
 首先通过maven将本SDK引入到项目中，需要先在<repositories>中添加以下仓库
 
-```java
+```xml
 <repository>
     <id>dreamspark</id>
     <name>Dreamspark Pulic Repository</name>
@@ -12,7 +12,7 @@
 ```
 
 然后在<dependencies>中添加以下依赖
-```java
+```xml
 <dependency>
     <groupId>cn.com.dreamspark</groupId>
     <artifactId>duplicate-check</artifactId>
