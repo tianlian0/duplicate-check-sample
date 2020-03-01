@@ -19,9 +19,9 @@
 [SDK详细文档](https://dreamspark.com.cn/blog/?id=1 "SDK详细文档")  
 
 # 查重报告示例截图
-![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/images/pic1.png)  
-![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/images/pic2.png)  
-![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/images/pic3.png)  
+![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic1.png)  
+![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic2.png)  
+![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic3.png)  
 
 # 应用场景  
 SDK应用场景：高校论文查重、企业合同查重、企业内部文档查重、学生作业查重等。  
