@@ -2,18 +2,23 @@
 本项目为DreamSpark文本查重SDK的一个使用示例
 
 首先通过maven将本SDK引入到项目中，需要先在<repositories>中添加以下仓库
+
+```java
 <repository>
     <id>dreamspark</id>
     <name>Dreamspark Pulic Repository</name>
     <url>http://maven.dreamspark.com.cn/repository/maven-releases/</url>
 </repository>
+```
 
 然后在<dependencies>中添加以下依赖
+```java
 <dependency>
     <groupId>cn.com.dreamspark</groupId>
     <artifactId>duplicate-check</artifactId>
     <version>0.2.0</version>
 </dependency>
+```
 
 # SDK详细文档
 [SDK详细文档](https://dreamspark.com.cn/blog/?id=1 "SDK详细文档")  
