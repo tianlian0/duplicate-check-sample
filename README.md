@@ -24,6 +24,7 @@
 ```
 
 # SDK详细文档
+本SDK提供较为详细的开发文档，欢迎各位开发人员使用并提供反馈。  
 [SDK详细文档](https://dreamspark.com.cn/blog/?id=1 "SDK详细文档")  
 
 # 查重报告示例截图

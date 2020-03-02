@@ -45,7 +45,7 @@ public class CheckStateImp implements CheckState {
      * @param msg   错误信息
      */
     @Override
-    public void fail(String uid, Paper paper, Integer code, String msg) {
+    public void fail(String uid, Paper paper, int code, String msg) {
         System.out.println("fail:" + uid + " cdoe:" + code + " msg:" + msg);
     }
 
