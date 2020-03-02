@@ -4,7 +4,7 @@
 # 介绍
 本项目为DreamSpark文本查重SDK的一个使用示例
 
-首先通过maven将本SDK引入到项目中，需要先在<repositories>中添加以下仓库
+首先通过maven将本SDK引入到项目中，需要先在repositories中添加以下仓库
 
 ```xml
 <repository>
@@ -14,7 +14,7 @@
 </repository>
 ```
 
-然后在<dependencies>中添加以下依赖
+然后在dependencies中添加以下依赖
 ```xml
 <dependency>
     <groupId>cn.com.dreamspark</groupId>

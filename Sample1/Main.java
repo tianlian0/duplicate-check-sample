@@ -42,12 +42,8 @@ public class Main2 {
         //构建并启动任务
         CheckTask checkTask = PaperManager.INSTANCE
                 .getCheckTaskBuilder() //获取构建者
-                .setUid("1") //设置任务id
                 .setToCheckPaper(toCheckPaper) //设置待查论文
                 .setLibrary(paperLibrary) //设置论文库
-                .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器
-                .setTemplate(new DefaultTemplate()) //设置查重报告样式模板
-                .addCheckCore(new ClauseCheck()) //添加查重算法
                 .build(); //构建任务。如果论文库没有build，在这里会自动build
         checkTask.start(); //启动任务
         checkTask.join(); //等待查重结束
