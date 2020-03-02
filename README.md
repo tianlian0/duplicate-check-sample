@@ -1,4 +1,7 @@
-# duplicate-check-sample
+# 关联
+查重系统；论文查重系统；合同查重；文档查重；作业查重；
+
+# 介绍
 本项目为DreamSpark文本查重SDK的一个使用示例
 
 首先通过maven将本SDK引入到项目中，需要先在<repositories>中添加以下仓库
@@ -24,8 +27,11 @@
 [SDK详细文档](https://dreamspark.com.cn/blog/?id=1 "SDK详细文档")  
 
 # 查重报告示例截图
+截图1：  
 ![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic1.png)  
+截图2：  
 ![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic2.png)  
+截图3：  
 ![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic3.png)  
 
 # 应用场景  
