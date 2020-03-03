@@ -21,13 +21,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //获取机器码
         System.out.println(Auth.getMachineCode());
-        //设置注册码
+        //设置注册码（免费获取：https://dreamspark.com.cn/blog/?id=7）
         PaperManager.INSTANCE.setRegCode("5LMLeGvAAWXQz8wpYi/HEQtzcsbLHRJx2B6vvqG+xvDfitKHi2zayzfKyuG6kW/3iJvo=");
         //检查注册状态
         System.out.println(PaperManager.INSTANCE.regState());
 
         //加载、构建论文库
-        PaperLibraryCore paperLibrary = new PaperLibrary("C:\\Users\\admin\\Desktop\\library");
+        PaperLibraryCore paperLibrary = new PaperLibrary("C:\\Users\\admin\\Desktop\\library"); //论文库所在文件夹（Paper序列化文件）
         paperLibrary.build(); //构建论文库
 
         //读取转换待查重的论文
