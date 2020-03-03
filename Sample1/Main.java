@@ -42,9 +42,9 @@ public class Main2 {
         //构建并启动任务
         CheckTask checkTask = PaperManager.INSTANCE
                 .getCheckTaskBuilder() //获取构建者
-                .setToCheckPaper(toCheckPaper) //设置待查论文
                 .setLibrary(paperLibrary) //设置论文库
-                .build(); //构建任务。如果论文库没有build，在这里会自动build
+                .setToCheckPaper(toCheckPaper) //设置待查论文
+                .build(); //构建任务
         checkTask.start(); //启动任务
         checkTask.join(); //等待查重结束
 

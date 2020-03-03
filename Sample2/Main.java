@@ -36,14 +36,14 @@ public class Main {
         //构建并启动任务
         PaperManager.INSTANCE
                 .getCheckTaskBuilder() //获取构建者
-                .setUid("1") //设置任务id
                 .setCheckState(new CheckStateImp()) //设置回调处理
-                .setToCheckPaper(toCheckPaper) //设置待查论文
+                .setUid("1") //设置任务id
                 .setLibrary(paperLibrary) //设置论文库
-                .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器
-                .setTemplate(new DefaultTemplate()) //设置查重报告样式模板
-                .addCheckCore(new ClauseCheck()) //添加查重算法
-                .build() //构建任务。如果论文库没有build，在这里会自动build
+                .setToCheckPaper(toCheckPaper) //设置待查论文
+                .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器。如不设置，默认即为DefaultReporter
+                .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
+                .addCheckCore(new ClauseCheck(0.85)) //添加查重算法
+                .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
 
     }
