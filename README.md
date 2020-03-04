@@ -10,7 +10,7 @@
 <repository>
     <id>dreamspark</id>
     <name>Dreamspark Pulic Repository</name>
-    <url>http://maven.dreamspark.com.cn/repository/maven-releases/</url>
+    <url>https://maven.dreamspark.com.cn/repository/maven-releases/</url>
 </repository>
 ```
 
