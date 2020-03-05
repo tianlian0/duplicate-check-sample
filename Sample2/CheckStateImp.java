@@ -13,7 +13,7 @@ public class CheckStateImp implements CheckState {
      * 开始查重时回调此函数
      *
      * @param uid   查重任务id
-     * @param paper 论文
+     * @param paper 被查Paper
      */
     @Override
     public void start(String uid, Paper paper) {
@@ -24,7 +24,7 @@ public class CheckStateImp implements CheckState {
      * 查重完毕回调此函数
      *
      * @param uid      查重任务id
-     * @param paper    论文
+     * @param paper    被查Paper
      * @param reporter 查重报告
      */
     @Override
@@ -35,10 +35,10 @@ public class CheckStateImp implements CheckState {
     }
 
     /**
-     * 论文查重失败后回调
+     * 查重失败后回调
      *
      * @param uid   查重任务id
-     * @param paper 失败的论文
+     * @param paper 失败的Paper
      * @param code  错误码
      * @param e     错误信息
      */

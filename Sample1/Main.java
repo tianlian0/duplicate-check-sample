@@ -21,24 +21,24 @@ public class Main2 {
         //设置注册码
         PaperManager.INSTANCE.setRegCode("50v9T+1Qz8wpYi/HEQtzcsbLHRJx2B6vvqG+xvDfitKHi2zayzfKyuG6kW/3iJvo=");
 
-        //构加载、建论文库
+        //构加载、建比对库
         PaperLibraryCore paperLibrary = new PaperLibrary();
-        File folder = new File("C:\\Users\\admin\\Desktop\\library"); //论文库所在文件夹
+        File folder = new File("C:\\Users\\admin\\Desktop\\library"); //比对库所在文件夹
         for (File file : folder.listFiles()) { //遍历文件夹中文件
             Paper paper = new Paper(file); //加载为Paper
-            paper.setId("001").setTitle("论文标题").setAuthor("论文作者").setYear("论文年份").setSource("论文来源"); //设置论文各项信息
-            paperLibrary.addByPaper(paper); //添加到论文库
+            paper.setId("001").setTitle("文章标题").setAuthor("文章作者").setYear("文章年份").setSource("文章来源"); //设置文章的各项信息
+            paperLibrary.addByPaper(paper); //添加到比对库
         }
-        paperLibrary.build(); //构建论文库
+        paperLibrary.build(); //构建比对库
 
-        //读取转换待查重的论文
+        //读取转换待查重的文件
         Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\test.docx"));
 
         //构建并启动任务
         CheckTask checkTask = PaperManager.INSTANCE
                 .getCheckTaskBuilder() //获取查重任务构造器
-                .setLibrary(paperLibrary) //设置论文库
-                .setToCheckPaper(toCheckPaper) //设置待查论文
+                .setLibrary(paperLibrary) //设置比对库
+                .setToCheckPaper(toCheckPaper) //设置待查Paper
                 .build(); //构建任务，返回checkTask对象
         checkTask.start(); //启动任务
         checkTask.join(); //等待查重结束
