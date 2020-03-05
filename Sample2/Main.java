@@ -1,4 +1,4 @@
-package Sample;
+package Sample2;
 
 import cn.papercheck.algorithm.PaperManager;
 import cn.papercheck.algorithm.check.ClauseCheck;

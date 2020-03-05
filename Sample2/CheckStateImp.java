@@ -1,4 +1,4 @@
-package Sample;
+package Sample2;
 
 import cn.papercheck.algorithm.CheckState;
 import cn.papercheck.algorithm.pojo.Paper;
