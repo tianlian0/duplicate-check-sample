@@ -15,7 +15,6 @@ public class CheckStateImp implements CheckState {
      * @param uid   查重任务id
      * @param paper 被查Paper
      */
-    @Override
     public void start(String uid, Paper paper) {
         System.out.println("start:" + uid);
     }
@@ -27,7 +26,6 @@ public class CheckStateImp implements CheckState {
      * @param paper    被查Paper
      * @param reporter 查重报告
      */
-    @Override
     public void finish(String uid, Paper paper, ReporterCore reporter) {
         System.out.println("finish:" + uid);
         reporter.saveAsFile("C:\\Users\\admin\\Desktop\\查重报告1.mht", 1); //保存查重报告1（全文标红）
@@ -42,7 +40,6 @@ public class CheckStateImp implements CheckState {
      * @param code  错误码
      * @param e     错误信息
      */
-    @Override
     public void fail(String uid, Paper paper, int code, Exception e) {
         e.printStackTrace();
         System.out.println("fail:" + uid + " cdoe:" + code + " msg:" + e.getMessage());
