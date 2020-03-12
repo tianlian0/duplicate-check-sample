@@ -20,7 +20,7 @@
 <dependency>
     <groupId>cn.com.dreamspark</groupId>
     <artifactId>duplicate-check</artifactId>
-    <version>0.2.1</version>
+    <version>LATEST</version>
 </dependency>
 ```
 
