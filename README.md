@@ -3,8 +3,6 @@
 
 #### 介绍
 本项目为DS文本查重SDK的一个使用示例
-
-本SDK支持的最低JDK版本为1.8.0_231(即jdk-8u231)，如您的JDK低于此版本，建议您升级到更新版本。
 首先通过maven将本SDK引入到项目中，需要先在repositories中添加以下仓库
 
 ```xml
@@ -24,6 +22,8 @@
 </dependency>
 ```
 
+除maven外同样支持Gradle、lvy等，修改对应引入语法即可。
+
 #### SDK详细文档
 本SDK提供较为详细的开发文档，欢迎各位开发人员使用并提供反馈。  
 [SDK详细文档](https://dreamspark.com.cn/blog/?id=1 "SDK详细文档")  
@@ -31,8 +31,10 @@
 #### 查重报告示例截图
 截图1：  
 ![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic1.png)  
+
 截图2：  
 ![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic2.png)  
+
 截图3：  
 ![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic3.png)  
 
