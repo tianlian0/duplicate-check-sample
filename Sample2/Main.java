@@ -3,6 +3,7 @@ package Sample2;
 import cn.papercheck.algorithm.PaperManager;
 import cn.papercheck.algorithm.check.ClauseCheck;
 import cn.papercheck.algorithm.check.ContinuityCheck;
+import cn.papercheck.algorithm.pojo.CloudPaperLibrary;
 import cn.papercheck.algorithm.pojo.Paper;
 import cn.papercheck.algorithm.pojo.PaperLibrary;
 import cn.papercheck.algorithm.pojo.PaperLibraryCore;
@@ -16,7 +17,7 @@ import java.io.IOException;
 /**
  * SDK进阶使用范例
  */
-public class Main1 {
+public class Main {
 
     public static void main(String[] args) throws IOException {
         //获取机器码
@@ -29,6 +30,12 @@ public class Main1 {
         //加载、构建比对库
         PaperLibraryCore paperLibrary = new PaperLibrary("C:\\Users\\admin\\Desktop\\library"); //比对库所在文件夹（Paper序列化文件）
         paperLibrary.build(); //构建比对库
+        //如果使用云比对库（云比对库需向服务商购买、开通后台账号后使用）
+        //CloudPaperLibrary paperLibrary = new CloudPaperLibrary(); //使用云比对库
+        //paperLibrary.setUsername("test"); //设置云比对库用户名
+        //paperLibrary.setPassword("123"); //设置云比对库密码
+        //paperLibrary.setBaseUrl("www.abc.net"); //设置云比对库域名（不包含http和/）
+        //paperLibrary.setShop("testdomain"); //设置二级域名
 
         //读取转换待查重的文件
         Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\test.docx"));
@@ -40,9 +47,9 @@ public class Main1 {
                 .setCheckState(new CheckStateImp()) //设置回调处理
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
-                .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器。如不设置，默认即为DefaultReporter
+                .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器。如不设置，默认即为DefaultReporter。使用云比对库不支持设置该项
                 .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
-                .addCheckCore(new ClauseCheck(0.85f)) //添加查重算法。如不添加则会自动添加ClauseCheck(0.8)
+                .addCheckCore(new ClauseCheck(0.85f)) //添加查重算法。如不添加则会自动添加ClauseCheck(0.8)。使用云比对库不支持设置该项
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
     }
