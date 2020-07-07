@@ -1,5 +1,5 @@
 #### 关联
-查重系统；论文查重系统；合同查重；文档查重；作业查重；文本去重；
+查重系统；项目申报书查重；论文查重系统；合同查重；文档查重；作业查重；文本去重；
 
 #### 介绍
 本项目为DS文本查重SDK的一个使用示例
@@ -13,12 +13,12 @@
 </repository>
 ```
 
-然后在dependencies中添加以下依赖
+然后在dependencies中添加以下依赖。依赖包大小约为55M，需要下载一小会。
 ```xml
 <dependency>
     <groupId>cn.com.dreamspark</groupId>
     <artifactId>duplicate-check</artifactId>
-    <version>LATEST</version>
+    <version>0.2.9</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@
 ![image](https://github.com/tianlian0/duplicate-check-sample/blob/master/image/pic3.png)  
 
 #### 应用场景
-SDK应用场景：高校论文查重、企业合同查重、企业内部文档查重、学生作业查重、文本去重、代码查重等。  
+SDK应用场景：高校论文查重、项目申报书查重、企业内部文档查重、学生作业查重、文本去重、代码查重等。  
 本SDK已用于多个商业项目，包括web网站和客户端程序。商业合作专用微信/QQ：654062779，可以提供SDK相关技术支持，也可以进行查重系统定制开发相关技术支持，欢迎各企业、高校、机构研发人员合作。  
 
 #### 关联项目
