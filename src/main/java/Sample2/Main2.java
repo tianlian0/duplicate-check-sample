@@ -1,14 +1,13 @@
 package Sample2;
 
-import cn.papercheck.algorithm.PaperManager;
-import cn.papercheck.algorithm.check.ClauseCheck;
-import cn.papercheck.algorithm.check.ContinuityCheck;
-import cn.papercheck.algorithm.pojo.Paper;
-import cn.papercheck.algorithm.pojo.PaperLibrary;
-import cn.papercheck.algorithm.pojo.PaperLibraryCore;
-import cn.papercheck.algorithm.report.DefaultReporter;
-import cn.papercheck.algorithm.report.DefaultTemplate;
-import cn.papercheck.authentication.Auth;
+import cn.papercheck.engine.CheckManager;
+import cn.papercheck.engine.algorithm.ClauseCheck;
+import cn.papercheck.engine.algorithm.ContinuityCheck;
+import cn.papercheck.engine.pojo.Paper;
+import cn.papercheck.engine.pojo.LocalPaperLibrary;
+import cn.papercheck.engine.report.DefaultReporter;
+import cn.papercheck.engine.report.DefaultTemplate;
+import cn.papercheck.licence.Auth;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,12 +22,12 @@ public class Main2 {
         //获取机器码
         System.out.println(Auth.getMachineCode());
         //设置注册码（免费获取：https://dreamspark.com.cn/blog/?id=7）
-        PaperManager.INSTANCE.setRegCode("muQyymFW0ysAZZhKVOzkh/jbuGMMfBg9IihiT2Fq9xEZxfIA=");
+        CheckManager.INSTANCE.setRegCode("muQyymFW0ysAZZhKVOzkh/jbuGMMfBg9IihiT2Fq9xEZxfIA=");
         //检查注册状态
-        System.out.println(PaperManager.INSTANCE.regState());
+        System.out.println(CheckManager.INSTANCE.regState());
 
         //加载比对库（如果使用本地比对库）
-        PaperLibraryCore paperLibrary = new PaperLibrary("C:\\Users\\admin\\Desktop\\Library"); //比对库所在文件夹。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
+        LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\新建文件夹"); //比对库所在文件夹。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
         //如果想设置对比库中文件的标题、作者、来源、年份四项信息有多种方法
         //1、如果不设置，将默认以文件名作为标题，其它信息为空
         //2、如果文件名符合以下两个规则，默认直接从文件名中读取四项信息
@@ -41,25 +40,27 @@ public class Main2 {
         paperLibrary.build(); //构建比对库
 
         //读取待查重的文件
-        Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\test.docx")); //读取本地文件
+        Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\1.docx")); //读取本地文件
         //也可以不从文件中读取，直接使用字符串加载
         //Paper toCheckPaper = new Paper("正文文本 正文文 本正文文本");
         //设置带查重文本的标题、作者、来源、年份四项信息。设置规则和加载论文库时一致
         toCheckPaper.setAuthor("作者").setTitle("标题").setSource("用户上传").setYear("2018"); //如果不设置则默认标题为文件名，其余项为空
 
         //构建并启动任务
-        PaperManager.INSTANCE
+        CheckManager.INSTANCE
                 .getCheckTaskBuilder() //获取查重任务构造器
                 .setUid("1") //设置任务id，不同任务的id不应重复。如果不设置将随机生成uuid作为id
-                .setCheckState(new CheckStateImp()) //设置回调处理。可参考包中CheckStateImp的实现范例
+                .setCheckState(new CheckStateImp(), "test info") //设置回调处理并传递自定义信息。可参考包中CheckStateImp的实现范例。
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
                 .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器。如不设置，默认即为DefaultReporter
                 .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
                 .addCheckCore(new ContinuityCheck(12)) //添加查重算法。如不添加则会自动添加ClauseCheck(0.8)
-                //.addCheckCore(new ClauseCheck(0.8f)) //可以单独或同时使用ClauseCheck算法
+                .addCheckCore(new ClauseCheck(0.85f)) //同时使用ClauseCheck算法
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
+
+        CheckManager.INSTANCE.shutdown(); //全部任务结束后关闭线程池。服务器程序通常不执行该方法
 
     }
 
