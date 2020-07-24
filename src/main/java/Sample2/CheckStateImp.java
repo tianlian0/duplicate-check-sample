@@ -4,6 +4,8 @@ import cn.papercheck.engine.CheckState;
 import cn.papercheck.engine.pojo.Paper;
 import cn.papercheck.engine.report.ReporterCore;
 
+import java.io.IOException;
+
 /**
  * SDK进阶使用范例：CheckState实现范例
  */
@@ -31,8 +33,12 @@ public class CheckStateImp implements CheckState<String> {
         System.out.println("finish:" + uid);
         System.out.println(info); //打印自定义信息
         //如果使用本地比对库，可直接保存两种类型的查重报告
-        reporter.saveAsFile("C:\\Users\\admin\\Desktop\\report1.mht", 1); //保存1型查重报告（全文标红）
-        reporter.saveAsFile("C:\\Users\\admin\\Desktop\\report2.mht", 2); //保存2型查重报告（原文对照）
+        try {
+            reporter.saveAsFile("C:\\Users\\admin\\Desktop\\report1.mht", 1); //保存1型查重报告（全文标红）
+            reporter.saveAsFile("C:\\Users\\admin\\Desktop\\report2.mht", 2); //保存2型查重报告（原文对照）
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
