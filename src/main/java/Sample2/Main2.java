@@ -27,7 +27,7 @@ public class Main2 {
         System.out.println(CheckManager.INSTANCE.regState());
 
         //加载比对库（如果使用本地比对库）
-        LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\新建文件夹"); //比对库所在文件夹。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
+        LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library"); //比对库所在文件夹。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
         //如果想设置对比库中文件的标题、作者、来源、年份四项信息有多种方法
         //1、如果不设置，将默认以文件名作为标题，其它信息为空
         //2、如果文件名符合以下两个规则，默认直接从文件名中读取四项信息
@@ -55,12 +55,11 @@ public class Main2 {
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
                 .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器。如不设置，默认即为DefaultReporter
                 .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
-                .addCheckCore(new ContinuityCheck(12)) //添加查重算法。如不添加则会自动添加ClauseCheck(0.8)
-                .addCheckCore(new ClauseCheck(0.85f)) //同时使用ClauseCheck算法
+                .addCheckCore(new ContinuityCheck(12)) //指定ContinuityCheck作为查重算法。如不指定则会自动使用ClauseCheck(0.85)+ContinuityCheck(12)，查重算法的选择与区别参见文档说明
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
 
-        CheckManager.INSTANCE.shutdown(); //全部任务结束后关闭线程池。服务器程序通常不执行该方法
+        //CheckManager.INSTANCE.shutdown(); //全部任务结束后关闭线程池，优雅退出。服务器程序通常不执行该方法
 
     }
 
