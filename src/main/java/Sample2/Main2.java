@@ -1,13 +1,11 @@
 package Sample2;
 
 import cn.papercheck.engine.CheckManager;
-import cn.papercheck.engine.algorithm.ClauseCheck;
 import cn.papercheck.engine.algorithm.ContinuityCheck;
-import cn.papercheck.engine.pojo.Paper;
 import cn.papercheck.engine.pojo.LocalPaperLibrary;
+import cn.papercheck.engine.pojo.Paper;
 import cn.papercheck.engine.report.DefaultReporter;
 import cn.papercheck.engine.report.DefaultTemplate;
-import cn.papercheck.licence.Auth;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +18,7 @@ public class Main2 {
 
     public static void main(String[] args) throws IOException {
         //获取机器码
-        System.out.println(Auth.getMachineCode());
+        System.out.println(CheckManager.INSTANCE.getMachineCode());
         //设置注册码（免费获取：https://dreamspark.com.cn/blog/?id=7）
         CheckManager.INSTANCE.setRegCode("muQyymFW0ysAZZhKVOzkh/jbuGMMfBg9IihiT2Fq9xEZxfIA=");
         //检查注册状态
