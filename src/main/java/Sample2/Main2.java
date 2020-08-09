@@ -4,11 +4,9 @@ import cn.papercheck.engine.CheckManager;
 import cn.papercheck.engine.algorithm.ContinuityCheck;
 import cn.papercheck.engine.pojo.LocalPaperLibrary;
 import cn.papercheck.engine.pojo.Paper;
-import cn.papercheck.engine.report.DefaultReporter;
 import cn.papercheck.engine.report.DefaultTemplate;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * SDK进阶使用范例
@@ -16,7 +14,7 @@ import java.io.IOException;
  */
 public class Main2 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         //获取机器码
         System.out.println(CheckManager.INSTANCE.getMachineCode());
         //设置注册码（免费获取：https://dreamspark.com.cn/blog/?id=7）
@@ -51,7 +49,6 @@ public class Main2 {
                 .setCheckState(new CheckStateImp(), "test info") //设置回调处理并传递自定义信息。可参考包中CheckStateImp的实现范例。
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
-                .setReporter(new DefaultReporter()) //设置自定义的查重报告构造器。如不设置，默认即为DefaultReporter
                 .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
                 .addCheckCore(new ContinuityCheck(12)) //指定ContinuityCheck作为查重算法。如不指定则会自动使用ClauseCheck(0.85)+ContinuityCheck(12)，查重算法的选择与区别参见文档说明
                 .build() //构建任务

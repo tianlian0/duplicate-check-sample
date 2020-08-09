@@ -6,7 +6,6 @@ import cn.papercheck.engine.pojo.LocalPaperLibrary;
 import cn.papercheck.engine.pojo.Paper;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * SDK入门使用范例
@@ -14,7 +13,7 @@ import java.io.IOException;
  */
 public class Main1 {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws Exception {
         //获取机器码
         System.out.println(CheckManager.INSTANCE.getMachineCode());
         //设置注册码（免费获取：https://dreamspark.com.cn/blog/?id=7）
