@@ -42,6 +42,8 @@ public class Main2 {
         //设置带查重文本的标题、作者、来源、年份四项信息。设置规则和加载论文库时一致
         toCheckPaper.setAuthor("作者").setTitle("标题").setSource("用户上传").setYear("2018"); //如果不设置则默认标题为文件名，其余项为空
 
+        //注意：待查文本和比对库中的文本如果完全相同，将会自动跳过，不进行查重比对。测试时请不要使用完全相同的两个文本进行查重。
+
         //构建并启动任务
         CheckManager.INSTANCE
                 .getCheckTaskBuilder() //获取查重任务构造器
@@ -50,7 +52,7 @@ public class Main2 {
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
                 .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
-                .addCheckCore(new ContinuityCheck(12)) //指定ContinuityCheck作为查重算法。如不指定则会自动使用ClauseCheck(0.85)+ContinuityCheck(12)，查重算法的选择与区别参见文档说明
+                .addCheckCore(new ContinuityCheck(13)) //指定ContinuityCheck作为查重算法。如不指定则会自动使用ClauseCheck(0.85)+ContinuityCheck(12)，查重算法的选择与区别参见文档说明
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
 

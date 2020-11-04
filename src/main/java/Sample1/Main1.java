@@ -28,6 +28,8 @@ public class Main1 {
         //读取待查重的文件（支持pdf、txt、doc、docx）
         Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\test.docx")); //读取本地文件
 
+        //注意：待查文本和比对库中的文本如果完全相同，将会自动跳过，不进行查重比对。测试时请不要使用完全相同的两个文本进行查重。
+
         //构建并启动任务
         CheckTask checkTask = CheckManager.INSTANCE
                 .getCheckTaskBuilder() //获取查重任务构造器
