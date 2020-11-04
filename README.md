@@ -18,7 +18,7 @@
 <dependency>
     <groupId>cn.com.dreamspark</groupId>
     <artifactId>duplicate-check</artifactId>
-    <version>0.3.6</version>
+    <version>0.3.7</version>
 </dependency>
 ```
 
@@ -41,6 +41,9 @@
 #### 应用场景
 SDK应用场景：高校论文查重、项目申报书查重、企业内部文档查重、学生作业查重、文本去重、代码查重等。  
 本SDK已用于多个商业项目，包括web网站和客户端程序。商业合作专用微信/QQ：654062779，可以提供SDK相关技术支持，也可以进行查重系统定制开发相关技术支持，欢迎各企业、高校、机构研发人员合作。  
+
+#### 软件许可使用协议
+下载、使用或购买前，请阅读[软件许可使用协议](https://dreamspark.com.cn/blog/zb_users/upload/2020/11/202011041604469747392115.pdf "软件许可使用协议")  ，一旦您下载、使用或购买本软件，将被视为已经完整阅读并同意遵守《软件许可使用协议》。
 
 #### 关联项目
 c#编写的论文查重系统客户端版：https://github.com/tianlian0/paper_checking_system  
