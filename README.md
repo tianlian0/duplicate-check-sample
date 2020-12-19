@@ -18,7 +18,7 @@
 <dependency>
     <groupId>cn.com.dreamspark</groupId>
     <artifactId>duplicate-check</artifactId>
-    <version>0.3.9</version>
+    <version>0.4.0</version>
 </dependency>
 ```
 
