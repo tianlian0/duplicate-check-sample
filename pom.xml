@@ -11,12 +11,12 @@
     <repositories>
         <repository>
             <id>maven-ali</id>
-            <name>ali</name>
+            <name>alibaba</name>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
         <repository>
             <id>dreamspark</id>
-            <name>Dreamspark Pulic Repository</name>
+            <name>Dreamspark Public Repository</name>
             <url>https://maven.dreamspark.com.cn/repository/maven-releases/</url>
         </repository>
     </repositories>
@@ -29,7 +29,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.com.dreamspark</groupId>
-            <artifactId>duplicate-check</artifactId>
+            <artifactId>duplicate-check-pro</artifactId>
             <version>0.4.0</version>
         </dependency>
     </dependencies>
