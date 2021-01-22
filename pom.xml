@@ -30,7 +30,7 @@
         <dependency>
             <groupId>cn.com.dreamspark</groupId>
             <artifactId>duplicate-check-pro</artifactId>
-            <version>0.4.0</version>
+            <version>0.4.1</version>
         </dependency>
     </dependencies>
 
