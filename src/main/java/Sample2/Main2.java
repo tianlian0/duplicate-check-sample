@@ -26,7 +26,7 @@ public class Main2 {
 
         //加载比对库（如果使用本地比对库）
         LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library"); //比对库所在文件夹。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
-        //如果想设置对比库中文件的标题、作者、来源、年份四项信息有多种方法
+        //如果想设置对比库中文件的标题、作者、来源、年份四项信息，有多种方法
         //1、如果不设置，将默认以文件名作为标题，其它信息为空
         //2、如果文件名符合以下两个规则，默认直接从文件名中读取四项信息
         //①文件名中四项信息依次用#号隔开。例：标题#作者#论文对比库#2018.docx
@@ -35,6 +35,7 @@ public class Main2 {
         //Paper paper = new Paper(new File("文件路径")); //首先从本地文件中加载Paper对象
         //paper.setAuthor("作者").setTitle("标题").setSource("默认对比库").setYear("2018"); //设置各项属性
         //paperLibrary.addByPaper(paper); //添加到论文库
+        //详细的使用说明及开发文档下载链接：https://dreamspark.com.cn/blog/?id=17
         paperLibrary.build(); //构建比对库
 
         //读取待查重的文件
@@ -54,7 +55,7 @@ public class Main2 {
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
                 .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
-                .addCheckCore(new ContinuityCheck(13)) //指定ContinuityCheck作为查重算法。如不指定则会自动使用ClauseCheck(0.85)+ContinuityCheck(12)，查重算法的选择与区别参见文档说明
+                .addCheckCore(new ContinuityCheck(13)) //指定ContinuityCheck作为查重算法。如不指定则会默认使用ContinuityCheck(13)，查重算法的选择与区别参见文档说明
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
 
