@@ -49,7 +49,7 @@ public class CheckStateImp implements CheckState<String> {
      * @param code  错误码
      * @param e     错误信息
      */
-    public void fail(String uid, Paper paper, int code, Exception e, String info) {
+    public void fail(String uid, Paper paper, int code, Throwable e, String info) {
         e.printStackTrace();
         System.out.println(info); //打印自定义信息
         System.out.println("fail:" + uid + " cdoe:" + code + " msg:" + e.getMessage());
