@@ -5,8 +5,11 @@ import cn.papercheck.engine.algorithm.ContinuityCheck;
 import cn.papercheck.engine.pojo.LocalPaperLibrary;
 import cn.papercheck.engine.pojo.Paper;
 import cn.papercheck.engine.report.DefaultTemplate;
+import cn.papercheck.engine.report.HtmlTemplate;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * SDK进阶使用范例
@@ -24,7 +27,7 @@ public class Main2 {
         //检查注册状态
         System.out.println(CheckManager.INSTANCE.regState());
 
-        //加载比对库（如果使用本地比对库）
+        //加载比对库
         LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library"); //比对库所在文件夹。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
         //如果想设置对比库中文件的标题、作者、来源、年份四项信息，有多种方法
         //1、如果不设置，将默认以文件名作为标题，其它信息为空
@@ -47,6 +50,12 @@ public class Main2 {
 
         //注意：待查文本和比对库中的文本如果完全相同，将会自动跳过，不进行查重比对。测试时请不要使用完全相同的两个文本进行查重。
 
+        //配置查重白名单关键词。通常用于一些允许重复的内容，如：论文中较长的专有名词（地名/公司名/学校名）、标书中的技术指标等
+        List<String> whiteKeywords = new ArrayList<>();
+        whiteKeywords.add("XXX学校XXX大学");
+        whiteKeywords.add("XXX公司");
+        whiteKeywords.add("XXX技术指标");
+
         //构建并启动任务
         CheckManager.INSTANCE
                 .getCheckTaskBuilder() //获取查重任务构造器
@@ -54,8 +63,9 @@ public class Main2 {
                 .setCheckState(new CheckStateImp(), "test info") //设置回调处理并传递自定义信息。可参考包中CheckStateImp的实现范例。
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
-                .setTemplate(new DefaultTemplate()) //设置查重报告样式模板。如不设置，默认即为DefaultTemplate
+                .setTemplate(new DefaultTemplate()) //设置查重报告样式模板，HtmlTemplate导出html格式，DefaultTemplate导出mht格式。如不设置，默认为DefaultTemplate。免费版、个人版仅支持mht格式。
                 .addCheckCore(new ContinuityCheck(13)) //指定ContinuityCheck作为查重算法。如不指定则会默认使用ContinuityCheck(13)，查重算法的选择与区别参见文档说明
+                .setWhiteKeywords(whiteKeywords) //设置查重白名单关键词（可选），免费评估版该接口不生效
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
 

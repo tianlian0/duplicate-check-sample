@@ -32,8 +32,11 @@ public class CheckStateImp implements CheckState<String> {
     public void finish(String uid, Paper paper, ReporterCore reporter, String info) {
         System.out.println("finish:" + uid);
         System.out.println(info); //打印自定义信息
-        //如果使用本地比对库，可直接保存两种类型的查重报告
+        System.out.println(reporter.getReportId()); //打印查重报告id
+        System.out.println(reporter.getCopyRate()); //打印总重复率
+        System.out.println(reporter.getFrontCopyWords()); //打印前部重复字符数
         try {
+            //保存两种类型的查重报告，免费评估版、个人版只支持mht格式
             reporter.saveAsFile("C:\\Users\\admin\\Desktop\\report1.mht", 1); //保存1型查重报告（全文标红）
             reporter.saveAsFile("C:\\Users\\admin\\Desktop\\report2.mht", 2); //保存2型查重报告（原文对照）
         } catch (IOException e) {
