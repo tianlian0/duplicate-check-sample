@@ -13,7 +13,7 @@
 </repository>
 ```
 
-然后在dependencies中添加以下依赖。依赖包大小约为55M，需要下载一小会。
+然后在dependencies中添加以下依赖。依赖包大小约为27MB，需要下载一小会。
 ```xml
 <dependency>
     <groupId>cn.com.dreamspark</groupId>
