@@ -27,8 +27,8 @@ public class Main2 {
         //检查注册状态
         System.out.println(CheckManager.INSTANCE.regState());
 
-        //加载比对库
-        LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library"); //比对库所在文件夹。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
+        //通过<文件夹>加载比对库
+        LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library"); //比对库所在<文件夹>。如果文件夹中存放的是Paper的序列化对象文件，则加载过程将更快速
         //如果想设置对比库中文件的标题、作者、来源、年份四项信息，有多种方法
         //1、如果不设置，将默认以文件名作为标题，其它信息为空
         //2、如果文件名符合以下两个规则，默认直接从文件名中读取四项信息
@@ -41,8 +41,8 @@ public class Main2 {
         //详细的使用说明及开发文档下载链接：https://dreamspark.com.cn/blog/?id=17
         paperLibrary.build(); //构建比对库
 
-        //读取待查重的文件
-        Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\1.docx")); //读取本地文件
+        //读取待查重的<文件>
+        Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\1.docx")); //读取本地<文件>
         //也可以不从文件中读取，直接使用字符串加载
         //Paper toCheckPaper = new Paper("正文文本 正文文 本正文文本");
         //设置带查重文本的标题、作者、来源、年份四项信息。设置规则和加载论文库时一致

@@ -23,11 +23,11 @@ public class Main1 {
         //检查注册状态
         System.out.println(CheckManager.INSTANCE.regState());
 
-        //加载本地比对库（支持pdf、txt、doc、docx）
-        LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library");//初始化对比库对象。路径为比对库所在文件夹
+        //通过<文件夹>加载本地比对库（支持pdf、txt、doc、docx）
+        LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library");//初始化对比库对象。路径为比对库所在<文件夹>
 
-        //读取待查重的文件（支持pdf、txt、doc、docx）
-        Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\test.docx")); //读取本地文件
+        //读取待查重的<文件>（支持pdf、txt、doc、docx）
+        Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\test.docx")); //读取本地<文件>
 
         //注意：待查文本和比对库中的文本如果完全相同，将会自动跳过，不进行查重比对。测试时请不要使用完全相同的两个文本进行查重。
 
