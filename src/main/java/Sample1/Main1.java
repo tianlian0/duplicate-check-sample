@@ -25,7 +25,6 @@ public class Main1 {
 
         //加载本地比对库（支持pdf、txt、doc、docx）
         LocalPaperLibrary paperLibrary = new LocalPaperLibrary("C:\\Users\\admin\\Desktop\\Library");//初始化对比库对象。路径为比对库所在文件夹
-        paperLibrary.build(); //构建比对库
 
         //读取待查重的文件（支持pdf、txt、doc、docx）
         Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\test.docx")); //读取本地文件
