@@ -39,7 +39,7 @@ public class Main2 {
         //paper.setAuthor("作者").setTitle("标题").setSource("默认对比库").setYear("2018"); //设置各项属性
         //paperLibrary.addByPaper(paper); //添加到论文库
         //详细的使用说明及开发文档下载链接：https://dreamspark.com.cn/blog/?id=17
-        paperLibrary.build(); //构建比对库
+        //paperLibrary.build(); //构建比对库，使用ClauseCheck算法时才需要构建比对库，这一步骤时间消耗和内存消耗较大，无特殊需要不需要执行
 
         //读取待查重的<文件>
         Paper toCheckPaper = new Paper(new File("C:\\Users\\admin\\Desktop\\1.docx")); //读取本地<文件>
@@ -64,7 +64,7 @@ public class Main2 {
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
                 .setTemplate(new DefaultTemplate()) //设置查重报告样式模板，HtmlTemplate导出html格式，DefaultTemplate导出mht格式。如不设置，默认为DefaultTemplate。免费版、个人版仅支持mht格式。
-                .addCheckCore(new ContinuityCheck(13)) //指定ContinuityCheck作为查重算法。如不指定则会默认使用ContinuityCheck(13)，查重算法的选择与区别参见文档说明
+                .addCheckCore(new ContinuityCheck(13)) //指定ContinuityCheck作为查重算法。如不指定则会默认使用ContinuityCheck(13)，通常无需更改。查重算法的选择与区别参见文档说明
                 .setWhiteKeywords(whiteKeywords) //设置查重白名单关键词（可选），免费评估版该接口不生效
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
