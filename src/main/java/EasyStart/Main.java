@@ -1,6 +1,7 @@
 package EasyStart;
 
 import cn.textcheck.CheckManager;
+import cn.textcheck.engine.report.Reporter;
 import cn.textcheck.starter.EasyStarter;
 
 import java.io.File;
@@ -17,6 +18,6 @@ public class Main {
         CheckManager.INSTANCE.setRegCode("muQyymFW0ysAZZhKVOzkh/jbuGMMfBg9IihiT2Fq9xEZxfIA=");
 
         //简易启动查重任务
-        EasyStarter.check(new File("待查文件所在的<文件夹>路径（只查一个文件可以是<文件>路径）"), new File("比对库所在的<文件夹>路径"), "保存查重报告的<文件夹>路径");
+        List<Reporter> reporters = EasyStarter.check(new File("待查文件所在的<文件夹>路径（只查一个文件可以是<文件>路径）"), new File("比对库所在的<文件夹>路径"), "保存查重报告的<文件夹>路径");
     }
 }
