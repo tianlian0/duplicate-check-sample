@@ -5,6 +5,7 @@ import cn.textcheck.engine.report.Reporter;
 import cn.textcheck.starter.EasyStarter;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * SDK简易启动器使用示例
