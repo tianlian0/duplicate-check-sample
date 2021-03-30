@@ -17,7 +17,7 @@ public class CheckStateImp implements CheckState<Context> {
         System.out.println("task start:" + uid);
     }
 
-    public void taskFinish(String uid, List<Reporter> reporters, List<Paper> failedPapers, Context context) {
+    public void taskFinish(String uid, List<Paper> toCheckPapers, List<Reporter> reporters, List<Paper> failedPapers, Context context) {
         System.out.println("task finish:" + uid);
         try {
             //当全部任务结束后，保存查重报告统计表

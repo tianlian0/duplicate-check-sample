@@ -17,7 +17,7 @@ public class CheckStateImp implements CheckState<String> {
         System.out.println("task start:" + uid);
     }
 
-    public void taskFinish(String uid, List<Reporter> reporters, List<Paper> failedPapers, String context) {
+    public void taskFinish(String uid, List<Paper> toCheckPapers, List<Reporter> reporters, List<Paper> failedPapers, String context) {
         System.out.println("task finish:" + uid);
     }
 
