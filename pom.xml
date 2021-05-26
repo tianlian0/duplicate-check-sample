@@ -15,9 +15,9 @@
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
         <repository>
-            <id>dreamspark</id>
-            <name>Dreamspark Public Repository</name>
-            <url>https://maven.dreamspark.com.cn/repository/maven-releases/</url>
+            <id>XINCHECK</id>
+            <name>XINCHECK Public Repository</name>
+            <url>https://maven.xincheck.com/repository/maven-releases/</url>
         </repository>
     </repositories>
 
@@ -28,7 +28,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>cn.com.dreamspark</groupId>
+            <groupId>com.xincheck</groupId>
             <artifactId>duplicate-check</artifactId>
             <version>0.5.2</version>
         </dependency>
