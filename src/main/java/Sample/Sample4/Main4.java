@@ -16,7 +16,7 @@ import java.util.List;
 public class Main4 {
 
     public static void main(String[] args) throws Exception {
-        //设置授权许可证（免费获取评估许可证：https://dreamspark.com.cn/blog/?id=7）
+        //设置授权许可证（免费获取评估许可证：https://xincheck.com/?id=7）
         CheckManager.INSTANCE.setRegCode("muQyymFW0ysAZZhKVOzkh/jbuGMMfBg9IihiT2Fq9xEZxfIA=");
 
         //待查重文件所在的文件夹路径

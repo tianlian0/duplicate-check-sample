@@ -16,7 +16,7 @@ import java.util.List;
 public class Main3 {
 
     public static void main(String[] args) throws Exception {
-        //设置授权许可证（免费获取评估许可证：https://dreamspark.com.cn/blog/?id=7）
+        //设置授权许可证（免费获取评估许可证：https://xincheck.com/?id=7）
         CheckManager.INSTANCE.setRegCode("muQyymFW0ysAZZhKVOzkh/jbuGMMfBg9IihiT2Fq9xEZxfIA=");
 
         //通过<文件夹>加载比对库。假设我们有三个不同的比对库

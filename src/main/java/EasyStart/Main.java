@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         //获取机器指纹
         System.out.println(CheckManager.INSTANCE.getMachineCode());
-        //设置授权许可证（免费获取评估许可证：https://dreamspark.com.cn/blog/?id=7）。授权许可证只需要设置1次，整个程序运行周期内均有效
+        //设置授权许可证（免费获取评估许可证：https://xincheck.com/?id=7）。授权许可证只需要设置1次，整个程序运行周期内均有效
         CheckManager.INSTANCE.setRegCode("muQyymFW0ysAZZhKVOzkh/jbuGMMfBg9IihiT2Fq9xEZxfIA=");
 
         //简易启动查重任务
