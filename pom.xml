@@ -29,7 +29,7 @@
     <dependencies>
         <dependency>
             <groupId>com.xincheck</groupId>
-            <artifactId>duplicate-check-pro</artifactId>
+            <artifactId>duplicate-check</artifactId>
             <version>0.5.3</version>
         </dependency>
     </dependencies>
