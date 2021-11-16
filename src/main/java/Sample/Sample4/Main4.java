@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 横向查重、标书查重的实现实例
+ * 横向查重/标书查重 实现实例
  *
  * 此应用程序使用了北京芯锋科技有限公司的XINCHECK SDK许可软件，该许可软件版权归北京芯锋科技有限公司所有，且其所有权利由北京芯锋科技有限公司保留。许可证密钥的使用应遵守XINCHECK软件许可使用协议，否则将违反中华人民共和国和国际版权法以及其他适用法律。
  */
@@ -34,6 +34,18 @@ public class Main4 {
             papers.add(paper);
         }
 
+        //对于标书场景，有一些内容是允许重复的，如招标文件、技术规格说明书中的内容。可以通过添加白名单的方式，在查重时进行排除
+        List<String> whiteList = new ArrayList<>();
+        whiteList.add(Paper.load(new File("技术规格说明书的文件路径")).getText());
+        whiteList.add(Paper.load(new File("招标文件的文件路径")).getText());
+        whiteList.add("XXXXX允许重复的字符串内容");
+
+        //对于标书场景，有一些内容是无法查重但需要重点关注的。如施工城市、供应商公司等。可以通过添加重点关注清单，将这些内容在查重报告中高亮展示
+        List<String> blackList = new ArrayList<>();
+        //重点关注清单中的字符串长度不能超过8个字符，否则自动阶段为8
+        blackList.add("XXX有限公司");
+        blackList.add("XXX城市");
+
         //实例化一个用于保存上下文的实例
         Context context = new Context();
         context.reportPath = "查重报告保存的<文件夹>路径（例D:\\Report）";
@@ -45,6 +57,8 @@ public class Main4 {
                 .addCheckState(new CheckStateImp(), context) //添加回调处理并传递上下文
                 .addLibrary(paperLibrary) //添加比对库。假设本次查重只需要用到1和3两个比对库
                 .addCheckPaper(papers) //添加待查Paper
+                .addWhiteWord(whiteList)
+                .addBlackWord(blackList)
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 多个比对库的纵向查重的实现实例
+ * 多个比对库的纵向查重/论文纵向查重 实现实例
  *
  * 此应用程序使用了北京芯锋科技有限公司的XINCHECK SDK许可软件，该许可软件版权归北京芯锋科技有限公司所有，且其所有权利由北京芯锋科技有限公司保留。许可证密钥的使用应遵守XINCHECK软件许可使用协议，否则将违反中华人民共和国和国际版权法以及其他适用法律。
  */
@@ -33,6 +33,12 @@ public class Main3 {
             papers.add(paper);
         }
 
+        //对于论文场景，有一些很长学科转业名词是允许重复的，如较长的化学物质名称、较长的地名等。可以通过添加白名单的方式，在查重时进行排除
+        List<String> whiteList = new ArrayList<>();
+        whiteList.add("环糊精转葡萄糖基转移酶");
+        whiteList.add("十二水合三硫酸铁亚态重铬酸合三磷硫氢化铁次铵");
+        whiteList.add("那然色布斯台音布拉格");
+
         //实例化一个用于保存上下文的实例
         Context context = new Context();
         context.reportPath = "查重报告保存的<文件夹>路径（例D:\\Report）";
@@ -45,6 +51,7 @@ public class Main3 {
                 .addLibrary(paperLibrary1) //添加比对库。假设本次查重只需要用到1和3两个比对库
                 .addLibrary(paperLibrary3)
                 .addCheckPaper(papers) //添加待查Paper
+                .addWhiteWord(whiteList)
                 .build() //构建任务
                 .submit(); //启动任务。submit：将任务提交到线程池中，如果线程池繁忙将会排队。start：直接启动任务
 
