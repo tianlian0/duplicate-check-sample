@@ -1,4 +1,4 @@
-package Sample.Sample3;
+package Sample.Sample5;
 
 import cn.textcheck.CheckState;
 import cn.textcheck.engine.pojo.Paper;
@@ -11,16 +11,17 @@ import java.util.List;
 /**
  * CheckState实现范例
  */
-public class CheckStateImp implements CheckState<Context> {
+public class CheckStateImp implements CheckState<String> {
 
     /**
      * 查重任务开始前会回调此方法
      *
      * @param uid         任务唯一id
-     * @param checkPapers 待查的文本对象
+     * @param checkPapers 待查的文本对象列表
      * @param context     上下文信息
      */
-    public void taskStart(String uid, List<Paper> checkPapers, Context context) {
+
+    public void taskStart(String uid, List<Paper> checkPapers, String context) {
         System.out.println("task start:" + uid);
     }
 
@@ -33,14 +34,8 @@ public class CheckStateImp implements CheckState<Context> {
      * @param failedPapers 查重失败的文本对象
      * @param context      上下文信息
      */
-    public void taskFinish(String uid, List<Paper> checkPapers, List<Reporter> reporters, List<Paper> failedPapers, Context context) {
+    public void taskFinish(String uid, List<Paper> checkPapers, List<Reporter> reporters, List<Paper> failedPapers, String context) {
         System.out.println("task finish:" + uid);
-        try {
-            //当全部任务结束后，保存查重报告统计表
-            Reporter.saveAsCSV(reporters, context.reportPath + "/统计表.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -50,7 +45,7 @@ public class CheckStateImp implements CheckState<Context> {
      * @param paper    被查Paper
      * @param context  上下文信息
      */
-    public void paperStart(String uid, Paper paper, Context context) {
+    public void paperStart(String uid, Paper paper, String context) {
         System.out.println("paper start:" + uid);
     }
 
@@ -61,12 +56,16 @@ public class CheckStateImp implements CheckState<Context> {
      * @param reporter 查重报告
      * @param context  上下文信息
      */
-    public void paperSuccess(String uid, Reporter reporter, Context context) {
+    public void paperSuccess(String uid, Reporter reporter, String context) {
         System.out.println("paper success:" + uid);
+        System.out.println(reporter.getReportId()); //打印查重报告id
+        System.out.println(reporter.getCopyRate()); //打印总重复率
+        System.out.println(reporter.getFrontCopyWords()); //打印前部重复字符数
         try {
             //保存两种类型的查重报告
-            reporter.saveAsFile(context.reportPath  + "/" + reporter.getPaper().getPayload(String.class) + "-1.html", ReportType.TEXT_WITH_CITATION); //保存全文标红报告
-            reporter.saveAsFile(context.reportPath  + "/" + reporter.getPaper().getPayload(String.class) + "-2.html", ReportType.TEXT_WITH_ORIGINAL); //保存原文对照报告
+            reporter.saveAsFile("保存html查重报告的文件路径（例 C:\\Desktop\\report1.html）", ReportType.TEXT_WITH_CITATION); //保存全文标明引文查重报告
+            reporter.saveAsFile("保存html查重报告的文件路径（例 C:\\Desktop\\report2.html）", ReportType.TEXT_WITH_ORIGINAL); //保存原文对照查重报告
+            reporter.saveAsFile("保存html查重报告的文件路径（例 C:\\Desktop\\report3.html）", ReportType.SAMPLE); //保存原文对照查重报告
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,7 +80,7 @@ public class CheckStateImp implements CheckState<Context> {
      * @param t        错误信息
      * @param context  上下文信息
      */
-    public void paperFailed(String uid, Paper paper, int code, Throwable t, Context context) {
+    public void paperFailed(String uid, Paper paper, int code, Throwable t, String context) {
         System.out.println("paper failed:" + uid);
         t.printStackTrace();
     }

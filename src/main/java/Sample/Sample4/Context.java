@@ -1,7 +1,7 @@
 package Sample.Sample4;
 
 /**
- * 自定义一个用于保存上下文的类
+ * 自定义一个用于保存上下文的类。本类为一个简易范例，实际可以定义更丰富、复杂的上下文
  */
 public class Context {
 

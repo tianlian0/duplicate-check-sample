@@ -43,5 +43,6 @@ public class Main1 {
         //保存查重报告
         checkTask.getReporters().get(0).saveAsFile("C:\\Report\\report1.html", ReportType.TEXT_WITH_CITATION); //保存查重报告（全文标红）
         checkTask.getReporters().get(0).saveAsFile("C:\\Report\\report2.html", ReportType.TEXT_WITH_ORIGINAL); //保存查重报告（原文对照）
+        checkTask.getReporters().get(0).saveAsFile("C:\\Report\\report3.html", ReportType.SAMPLE); //保存查重报告（简洁）
     }
 }
