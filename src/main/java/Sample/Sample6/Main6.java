@@ -1,18 +1,16 @@
-package Sample.Sapmle6;
+package Sample.Sample6;
 
 import cn.textcheck.CheckManager;
-import cn.textcheck.engine.algorithm.PicFingerCheck;
 import cn.textcheck.engine.config.Config;
 import cn.textcheck.engine.pojo.LocalPaperLibrary;
 import cn.textcheck.engine.pojo.Paper;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * SDK高级使用范例
- * 对文档中的图片生成图片查重报告（评估版不支持次功能）
+ * 对文档中的图片生成图片查重报告（评估版不支持此功能）
  *
  * 此应用程序使用了北京芯锋科技有限公司的XINCHECK SDK许可软件，该许可软件版权归北京芯锋科技有限公司所有，且其所有权利由北京芯锋科技有限公司保留。许可证密钥的使用应遵守XINCHECK软件许可使用协议，否则将违反中华人民共和国和国际版权法以及其他适用法律。
  */
