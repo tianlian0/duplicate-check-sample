@@ -1,4 +1,4 @@
-package Sample.Sapmle6;
+package Sample.Sample6;
 
 import cn.textcheck.CheckState;
 import cn.textcheck.engine.pojo.Paper;
