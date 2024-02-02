@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.xincheck</groupId>
             <artifactId>duplicate-check</artifactId>
-            <version>0.5.12</version>
+            <version>0.5.13</version>
         </dependency>
     </dependencies>
 
