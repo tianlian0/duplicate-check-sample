@@ -24,7 +24,7 @@ SDK提供较为详细的开发文档，欢迎各位开发人员使用并提供�
 <dependency>
     <groupId>com.xincheck</groupId>
     <artifactId>duplicate-check</artifactId>
-    <version>0.5.15</version>
+    <version>0.5.16</version>
 </dependency>
 ```
 除maven外同样支持Gradle、lvy等，修改对应引入语法即可。如果您希望直接引入jar包，也可以在maven仓库直接下载jar包引入。  
